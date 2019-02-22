@@ -180,7 +180,7 @@ function getToken()
 {
  $curl = curl_init();   
  curl_setopt_array($curl, array(
-     CURLOPT_URL => "https://sdp.qom.ir/api/Core/AuthenticationRequest",   
+     CURLOPT_URL => get_option('password_generator_api_url'),   
      CURLOPT_RETURNTRANSFER => true,   
      CURLOPT_HEADER => true,   
      CURLOPT_ENCODING => "",   

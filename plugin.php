@@ -53,6 +53,7 @@ function reg_otp_page_settings()
 
     register_setting('otp-page-group', 'is_telegram_log_enabled');
     register_setting('otp-page-group', 'is_password_md5_or_cas_algorithm');
+    register_setting('otp-page-group', 'password_generator_api_url');
 
 };
 
@@ -106,6 +107,11 @@ settings_fields('otp-page-group');
 <p>Enter telegram_bot_token_text</p>
 <input type="text" name="telegram_bot_token_text" value="<?php echo get_option('telegram_bot_token_text'); ?>" />
 <p>sdfgSDFGsfgg:hfg8sdf89gs9df8s7fg7s8fgs89f7g9s79g</p>
+<hr/>
+
+<p>enter password generator url</p>
+<input type="text" name="password_generator_api_url" value="<?php echo get_option('password_generator_api_url'); ?>" />
+<p>https://asdf.asdf.asdf.adsf</p>
 <hr/>
 
     <p>Enter is_telegram_log_enabled</p>
