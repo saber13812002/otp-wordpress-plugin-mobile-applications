@@ -9,18 +9,15 @@
  */
 class DB{
     private $dbHost     = "localhost";
-    private $dbUsername="";
-    private $dbPassword="";
-
-    private $dbName="";
+    // private $dbUsername = "root";
+    // private $dbPassword = "";
+    // private $dbName     = "bb_otp3";
+    private $dbUsername = "";
+    private $dbPassword = "";
+    private $dbName     = "";
     private $tblName    = "bb_players";
     
     public function __construct(){
-        $this->dbHost = get_option('server_name_text')?get_option('server_name_text'):$this->dbHost;
-        $this->dbUsername = get_option('dbuser_text')?get_option('dbuser_text'):"qavamico_wpusr";
-        $this->dbPassword = get_option('dbpass_text')?get_option('dbpass_text'):"";
-        $this->dbName     = get_option('dbname_text')?get_option('dbname_text'):"qavamico_qideaotp";
-
         if(!isset($this->db)){
             // Connect to the database
             $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);
@@ -54,7 +51,8 @@ class DB{
 		if(($result->num_rows) > 0)
         	return true;
 		else
-			return false;    }
+            return false;    
+        }
 
     public function checkRowInThisTable($conditions = array(),$tabelName){
         $sql = 'SELECT * FROM '.$tabelName;
@@ -70,10 +68,11 @@ class DB{
 
         $result = $this->db->query($sql);
         
-		if(($result->num_rows) > 0)
+        if(($result->num_rows) > 0)
         	return true;
 		else
-			return false;    }
+			return false;
+    }
     
     /*
      * Insert data into the database

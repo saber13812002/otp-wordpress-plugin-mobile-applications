@@ -3,6 +3,7 @@ require_once(dirname(__FILE__) . '/../../../wp-includes/pluggable.php');
 //require __DIR__.'/vendor/autoload.php';
 //use \Firebase\JWT\JWT;
 
+include 'number.php';
 // include 'Telegram2.php';
 require_once('../../../wp-load.php');
 //require_once '../../../wp-config.php';
@@ -19,22 +20,19 @@ if (isset($_REQUEST['phone']) && isset($_REQUEST['code']))
     $db = new DB();
 
 
-    $errorBadNumber = array('msg' => "error please send pusheid as quesrystring for me");
-    $errorCodeNumber = array('msg' => "error code incorrect try again!");
+    $errorBadNumber = array('status' => 300,'msg' => "error please send pusheid as quesrystring for me");
+    $errorCodeNumber = array('status' => 303,'msg' => "error code incorrect try again!");
     
     $len = strlen($phone);
     if ($len >= 10) {
-        $mobile10 = substr($phone, $len - 10, $len);
+        $phone =  right10($phone);
         $mobileregex = "/^[6-9][0-9]{9}$/";
-        //echo "Hi " . preg_match($mobileregex, $mobile10) === 1;
         $conditions = array(
-            'mobile_number' => $mobile10,
+            'mobile_number' => $phone,
             'verification_code' => $code,
         );
-    //echo $mobile10." ";
     //echo $code;
         $checkPrev = $db->checkRow($conditions);
-        //$code != 1111 && $mobile10 != '9196070718'
         if (!$checkPrev) {
             echo json_encode($errorCodeNumber);
     //         sendTelegeramMsg("user not created! error
@@ -48,10 +46,10 @@ if (isset($_REQUEST['phone']) && isset($_REQUEST['code']))
             $update = $db->update($otpData, $conditions);
     
             $username="user_".MD5($phone);
+            //$password=getToken();
             $password=MD5($code);
-            if(get_option('is_password_md5_or_cas_algorithm')=="1")
-            $password=getToken();
-            //generate_token($username, $password, "4234132412341");
+
+            //generate_token($username, $password, "2345-2345-2345-2345-2345");
             $email=$username."@berimbasket.ir";
             //echo $username ." ". $password ." ". $email;
 
@@ -180,7 +178,7 @@ function getToken()
 {
  $curl = curl_init();   
  curl_setopt_array($curl, array(
-     CURLOPT_URL => get_option('password_generator_api_url'),   
+     CURLOPT_URL => "https://WWW.QQQ.ir/api/Core/AuthenticationRequest",   
      CURLOPT_RETURNTRANSFER => true,   
      CURLOPT_HEADER => true,   
      CURLOPT_ENCODING => "",   
