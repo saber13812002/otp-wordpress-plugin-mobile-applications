@@ -101,7 +101,7 @@ if ($len >= 10) {
 
 function sendMsg($message)
 {
-    $bot_id = "369147560:AAEVq707XPH_nH3pTl1kMNLKPhkyQWsmUCA";
+    $bot_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     $telegram = new Telegram($bot_id);
     $chat_id = -1001136444717;
     $content = array('chat_id' => $chat_id, 'text' => $message);
@@ -113,7 +113,7 @@ function sendSMS($recipient_no, $rand_no)
     $curl = curl_init();
     //echo $recipient_no;echo $rand_no;
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.kavenegar.com/v1/4F6A4449587362356C7538614F6A7954535475695A513D3D/verify/lookup.jso",
+        CURLOPT_URL => "https://api.kavenegar.com/v1/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/verify/lookup.jso",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
