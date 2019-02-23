@@ -18,7 +18,7 @@ step 5: create a channel or group in telegram for logs then create a bot and add
 
 step 6: set telegram bot token in settings
 
-step 7: create a new database and import database.sql 
+step 7: create a new database and import database.sql : HERE IS : BB_OTP3.SQL THEN IN BB_USER TABLE PLEASE ALTER ID FIELD AS UNIQUE AND KEY AND AUTO INCREMENT
 
 step 8: configure servername dbname dbuser dbpass in plugin settings
 
