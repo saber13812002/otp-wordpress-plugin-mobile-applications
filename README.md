@@ -20,9 +20,14 @@ step 6: set telegram bot token in settings
 
 step 7: create a new database and import database.sql : HERE IS : BB_OTP3.SQL THEN IN BB_USER TABLE PLEASE ALTER ID FIELD AS UNIQUE AND KEY AND AUTO INCREMENT
 
-step 8: configure servername dbname dbuser dbpass in plugin settings
+step 8: need to modify structure of the vb_users 
 
-step 9: call with your ionic or android app with these templates: 
+  - change id field to primary key
+  - set it as AUTO INCREMENT
+
+step 9: configure servername dbname dbuser dbpass in plugin settings
+
+step 10: call with your ionic or android app with these templates: 
 
   call otp1 with : /wp-content/plugins/your-plugin-name/otp1.php?pusheid=asdfadsf&phone=09191231233
   
